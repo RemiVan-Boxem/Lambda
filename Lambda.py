@@ -8,7 +8,7 @@ class Atom(LambdaTerm):
     def __str__(self):
         return str(self.value)
     def __repr__(self):
-        return str(self.value)
+        return str(self)
 
 class Abstraction(LambdaTerm):
     """An Abstraction, QED"""
@@ -18,7 +18,7 @@ class Abstraction(LambdaTerm):
     def __str__(self):
         return str("λ" + str(self.name) + "." + str(self.body))
     def __repr__(self):
-        return str("λ" + str(self.name) + "." + str(self.body))
+        return str(self)
 
 class Application(LambdaTerm):
     """An Application thing"""
