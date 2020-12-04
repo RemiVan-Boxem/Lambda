@@ -26,11 +26,11 @@ class Application(LambdaTerm):
         self.lambdaterma : LambdaTerm = lta
         self.lambdatermb : LambdaTerm = ltb
     def __str__(self):
-        if isinstance(self.lambdaterma, Abstraction) and isinstance(self.lambdatermb, Abstraction) == True:
+        if isinstance(self.lambdaterma, Abstraction) and isinstance(self.lambdatermb, Abstraction):
             return ("(" + str(self.lambdaterma) + ")" + "(" + str(self.lambdatermb) + ")")
-        elif isinstance(self.lambdaterma, Abstraction) == True:
+        elif isinstance(self.lambdaterma, Abstraction):
             return ("("+ str(self.lambdaterma) + ")"+ str(self.lambdatermb))
-        elif isinstance(self.lambdatermb, Abstraction) == True:
+        elif isinstance(self.lambdatermb, Abstraction):
             return (str(self.lambdaterma) + "("+ str(self.lambdatermb) + ")")
         else:
             return (str(self.lambdaterma) + str(self.lambdatermb))
