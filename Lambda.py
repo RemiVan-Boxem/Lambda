@@ -9,6 +9,8 @@ class Atom(LambdaTerm):
         return str(self.value)
     def __repr__(self):
         return str(self)
+    def can_beta_r(self):
+        return False
 
 class Abstraction(LambdaTerm):
     """An Abstraction, QED"""
@@ -22,9 +24,17 @@ class Abstraction(LambdaTerm):
 
 class Application(LambdaTerm):
     """An Application thing"""
+
     def __init__(self, lta : LambdaTerm, ltb : LambdaTerm):
         self.lambdaterma : LambdaTerm = lta
         self.lambdatermb : LambdaTerm = ltb
+
+    def can_beta_r(self):
+        if isinstance(self.lambdaterma, Abstraction):
+            return True
+        else:
+            return self.lambdaterma.can_beta_r() or self.lambdatermb.can_beta_r()
+
     def __str__(self):
         if isinstance(self.lambdaterma, Abstraction) and isinstance(self.lambdatermb, Abstraction):
             return ("(" + str(self.lambdaterma) + ")" + "(" + str(self.lambdatermb) + ")")
