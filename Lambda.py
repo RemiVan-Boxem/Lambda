@@ -21,6 +21,9 @@ class Abstraction(LambdaTerm):
         return str("λ" + str(self.name) + "." + str(self.body))
     def __repr__(self):
         return str(self)
+    def can_beta_r(self):
+        return False
+
 
 class Application(LambdaTerm):
     """An Application thing"""
