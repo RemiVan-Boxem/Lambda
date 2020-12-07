@@ -3,8 +3,9 @@ class LambdaTerm():
 
 class Atom(LambdaTerm):
     """A Simple Atom"""
-    def __init__(self, value):
+    def __init__(self, value, depth):
         self.value = value
+        self.depth = depth
     def __str__(self):
         return str(self.value)
     def __repr__(self):
